@@ -13,9 +13,11 @@ export const getUsers = (_, res) => {
 
 export const addUser = (req, res) => {
     const q =
-      "INSERT INTO tbestacao_eta( `phRio`, `phFiltro`, `phTratada`, `phReservatorio`, `condtRio`, `condtTrat`, `durRio`, `durTrat`, ` alcRio `, ` alcTrat`, `cloroTrat`, `cloroReserv` ) VALUES(?)";
+      "INSERT INTO tbEstacao_eta(`dhata`, `hora`, `phRio`, `phFiltro`, `phTratada`, `phReservatorio`, `condtRio`, `condtTrat`, `durRio`, `durTrat`, ` alcRio `, ` alcTrat`, `cloroTrat`, `cloroReserv`, `analist` ) VALUES(?)";
 
       const values = [
+        req.body.dhata,
+        req.body.hora,
         req.body.phRio,
         req.body.phFiltro,
         req.body.phTratada,
@@ -28,21 +30,24 @@ export const addUser = (req, res) => {
         req.body.alcTrat,
         req.body.cloroTrat,
         req.body.cloroReserv,
+        req.body.analist,
     ];
 
     db.query(q, [values], (err) => {
         if (err) return res.json(err);
 
-        return res.status(200).json("Usuário criado com sucesso");
+        return res.status(200).json("Análises criadas com sucesso");
     });
 
 };
 
 export const updateUser = (req, res) => {
     const q =
-      "UPDATE tbestacao_eta SET `phRio` = ?, `phFiltro` = ?, `phTratada` = ?, `phReservatorio` = ?, `condtRio` = ?, `condtTrat`= ?, `durRio` = ?, `durTrat` = ?, ` alcRio ` = ?, ` alcTrat`= ?, `cloroTrat`= ?, `cloroReserv`= ?  where `id` = ?";
+      "UPDATE tbestacao_eta SET `dhata` = ? , `hora`= ?, `phRio` = ?, `phFiltro` = ?, `phTratada` = ?, `phReservatorio` = ?, `condtRio` = ?, `condtTrat`= ?, `durRio` = ?, `durTrat` = ?, ` alcRio ` = ?, ` alcTrat`= ?, `cloroTrat`= ?, `cloroReserv`= ?, `analist`= ?  where `id` = ?";
 
       const values = [
+        req.body.dhata,
+        req.body.hora,
         req.body.phRio,
         req.body.phFiltro,
         req.body.phTratada,
@@ -55,12 +60,13 @@ export const updateUser = (req, res) => {
         req.body.alcTrat,
         req.body.cloroTrat,
         req.body.cloroReserv,
+        req.body.analist,
     ];
 
     db.query(q, [...values,req.params.id], (err) => {
         if (err) return res.json(err);
 
-        return res.status(200).json("Usuário atualizado com sucesso");
+        return res.status(200).json("Análises atualizadas com sucesso");
     });
 
 };
@@ -72,7 +78,7 @@ export const deleteUser = (req, res) => {
     db.query(q, [req.params.id], (err) => {
         if (err) return res.json(err);
 
-        return res.status(200).json("Usuário deletado com sucesso");
+        return res.status(200).json("Analises deletadas com sucesso");
     });
 
 };

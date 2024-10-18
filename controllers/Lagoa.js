@@ -13,9 +13,11 @@ export const getUsers = (_, res) => {
 
 export const addUser = (req, res) => {
     const q =
-      "INSERT INTO tblagoa( `phPonto1L1`, `phPonto2L1`, `phPonto3L1`, `phPonto4L1`, `phPonto1L2`, `phPonto2L2` , `phPonto2L3`, `phPonto2L4`) VALUES(?)";
+      "INSERT INTO tblagoa(`dhata`, `hora`, `phPonto1L1`, `phPonto2L1`, `phPonto3L1`, `phPonto4L1`, `phPonto1L2`, `phPonto2L2` , `phPonto2L3`, `phPonto2L4`, `analist`) VALUES(?)";
 
       const values = [
+        req.body.dhata,
+        req.body.hora,
         req.body.phPonto1L1,
         req.body.phPonto2L1,
         req.body.phPonto3L1,
@@ -24,6 +26,7 @@ export const addUser = (req, res) => {
         req.body.phPonto2L2,
         req.body.phPonto3L2,
         req.body.phPonto4L2,
+        req.body.analist,
     ];
 
     db.query(q, [values], (err) => {
@@ -36,9 +39,11 @@ export const addUser = (req, res) => {
 
 export const updateUser = (req, res) => {
     const q =
-      "UPDATE usuarios SET  `phPonto1L1` = ?, `phPonto2L1` = ?, `phPonto3L1` = ?, `phPonto4L1` = ?, `phPonto1L2`= ?, `phPonto2L2`= ? , `phPonto2L3`= ? , `phPonto2L4`= ? where `id` = ?";
+      "UPDATE usuarios SET `dhata` = ?, `hora` = ?, `phPonto1L1` = ?, `phPonto2L1` = ?, `phPonto3L1` = ?, `phPonto4L1` = ?, `phPonto1L2`= ?, `phPonto2L2`= ? , `phPonto2L3`= ? , `phPonto2L4`= ? where `id` = ?";
 
       const values = [
+        req.body.dhata,
+        req.body.hora,
         req.body.phPonto1L1,
         req.body.phPonto2L1,
         req.body.phPonto3L1,
@@ -47,6 +52,7 @@ export const updateUser = (req, res) => {
         req.body.phPonto2L2,
         req.body.phPonto3L2,
         req.body.phPonto4L2,
+        req.body.analist,
     ];
 
     db.query(q, [...values,req.params.id], (err) => {
