@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
 
-export const getUsers = (_, res) => {
+export const getEte = (_, res) => {
     const q = "Select * from tbEstacao_ete";
 
     db.query(q, (err, data) => {
@@ -11,7 +11,7 @@ export const getUsers = (_, res) => {
     });
 };
 
-export const addUser = (req, res) => {
+export const addEte = (req, res) => {
     const q =
       "INSERT INTO tbEstacao_ete(`dhata`,`hora`, `eficiencia`,`dqoD1`,`phD1`,`tempD1`,`solidosD1`,`vazao`,`CargaOrgD1 `,`dqoSFlot `,`phSFloat `,`tempSFloat `,`solidosSFloat `,`ssSFloat`, `dqoRio`,`phRio`,`tempRio `,`oxRio `,`solidosRio `,`phSec `,`solidosSec `,`vazaoSec`,`phTerc`,`solidosTerc`,`vazaoTerc`,`dqoDecSec`,`phDecSec`,`tempDecSec`,`solidoDecSec`,`oxDisDecSec`,`vazaoDecSec`,`dqoDecTerc`,`phDecTerc`,`tempDecTerc`,`solidoDecTerc`,`oxDisDecTerc`,`vazaoDecTerc`,`eficBio`,`eficProc`,`dqoMont`,`phMont`,`tempMont`,`oxMont`,`solidoMont`,`dqoJust`,`phJust`,`tempJust`,`oxJust`,`solidoJust`,`dqoL1`,`phL1`,`tempL1`,`oxL1`,`solidoL1`,`ssL1`,`nitroL1`,`fosfL1`,`relFML1`,`ivlL1`,`prodLodoL1`,`retHidroL1`,`dqoL2`,`phL2`,`oxL2`,`solidoL2`,`ssL2`,`nitroL2`,`fosfL2`,`relFML2`,`ilvL2`,`prodLodoL2`,`retHidroL2`,`analist`) VALUES(?)";
 
@@ -100,7 +100,7 @@ export const addUser = (req, res) => {
 
 };
 
-export const updateUser = (req, res) => {
+export const updateEte = (req, res) => {
     const q =
       "UPDATE tbEstacao_ete set `dhata` = ?,`hora` = ?, `eficiencia` = ?,`dqoD1` = ?,`phD1`= ?,`tempD1= ?`,`solidosD1= ?`,`vazao`= ?,`CargaOrgD1 = ?`,`dqoSFlot = ?`,`phSFloat= ? `,`tempSFloat= ? `,`solidosSFloat= ? `,`ssSFloat`= ?, `dqoRio`= ?,`phRio`= ?,`tempRio`= ?,`oxRio`= ?,`solidosRio `= ?,`phSec`= ?,`solidosSec` = ?,`vazaoSec`= ?,`phTerc`= ?,`solidosTerc`= ?,`vazaoTerc`= ?,`dqoDecSec`= ?,`phDecSec`= ?,`tempDecSec`= ?,`solidoDecSec`= ?,`oxDisDecSec`= ?,`vazaoDecSec`= ?,`dqoDecTerc`= ?,`phDecTerc`= ?,`tempDecTerc`= ?,`solidoDecTerc`= ?,`oxDisDecTerc`= ?,`vazaoDecTerc`= ?,`eficBio`= ?,`eficProc`= ?,`dqoMont`= ?,`phMont`= ?,`tempMont`= ?,`oxMont`= ?,`solidoMont`= ?,`dqoJust`= ?,`phJust`= ?,`tempJust`= ?,`oxJust`= ?,`solidoJust`= ?,`dqoL1`= ?,`phL1`= ?,`tempL1`= ?,`oxL1`= ?,`solidoL1`= ?,`ssL1`= ?,`nitroL1`= ?,`fosfL1`= ?,`relFML1`= ?,`ivlL1`= ?,`prodLodoL1`= ?,`retHidroL1`= ?,`dqoL2`= ?,`phL2`= ?,`oxL2= ?`,`solidoL2`= ?,`ssL2`= ?,`nitroL2`= ?,`fosfL2`= ?,`relFML2`= ?,`ilvL2`= ?,`prodLodoL2`= ?,`retHidroL2`= ?,`analist`= ? where `id` = ?";
 
@@ -188,7 +188,7 @@ export const updateUser = (req, res) => {
 
 };
 
-export const deleteUser = (req, res) => {
+export const deleteEte = (req, res) => {
     const q =
       "DELETE FROM tbEstacao_ete WHERE `id` = ?";
     

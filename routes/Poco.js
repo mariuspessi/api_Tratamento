@@ -1,14 +1,14 @@
 import express from "express";
-import { getUsers, addUser, updateUser, deleteUser } from "../controllers/Poco.js";
+import { getPoco, addPoco, updatePoco, deletePoco } from "../controllers/Poco.js";
 
-const router = express.Router();
+const routerPoco = express.Router();
 
-router.get("/poco", getUsers);
+routerPoco.get("/", getPoco);
 
-router.post("/poco", addUser);
+routerPoco.post("/", addPoco);
 
-router.put("/poco:id", updateUser);
+routerPoco.put("/:id", updatePoco);
 
-router.delete("/poco:id", deleteUser);
+routerPoco.delete("/:id", deletePoco);
 
-export default router;
+export default routerPoco;

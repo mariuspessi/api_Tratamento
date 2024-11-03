@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
 
-export const getUsers = (_, res) => {
+export const getEta = (_, res) => {
     const q = "Select * from tbestacao_eta";
 
     db.query(q, (err, data) => {
@@ -11,9 +11,9 @@ export const getUsers = (_, res) => {
     });
 };
 
-export const addUser = (req, res) => {
+export const addEta = (req, res) => {
     const q =
-      "INSERT INTO tbEstacao_eta(`dhata`, `hora`, `phRio`, `phFiltro`, `phTratada`, `phReservatorio`, `condtRio`, `condtTrat`, `durRio`, `durTrat`, ` alcRio `, ` alcTrat`, `cloroTrat`, `cloroReserv`, `analist` ) VALUES(?)";
+      "INSERT INTO tbestacao_eta(`dhata`, `hora`, `phRio`, `phFiltro`, `phTratada`, `phReservatorio`, `condtRio`, `condtTrat`, `durRio`, `durTrat`, `alcRio`, `alcTrat`, `cloroTrat`, `cloroReserv`, `analist`) VALUES (?)";
 
       const values = [
         req.body.dhata,
@@ -41,9 +41,9 @@ export const addUser = (req, res) => {
 
 };
 
-export const updateUser = (req, res) => {
+export const updateEta = (req, res) => {
     const q =
-      "UPDATE tbestacao_eta SET `dhata` = ? , `hora`= ?, `phRio` = ?, `phFiltro` = ?, `phTratada` = ?, `phReservatorio` = ?, `condtRio` = ?, `condtTrat`= ?, `durRio` = ?, `durTrat` = ?, ` alcRio ` = ?, ` alcTrat`= ?, `cloroTrat`= ?, `cloroReserv`= ?, `analist`= ?  where `id` = ?";
+      "UPDATE tbestacao_eta SET  `dhata` = ? , `hora`= ?, `phRio` = ?, `phFiltro` = ?, `phTratada` = ?, `phReservatorio` = ?, `condtRio` = ?, `condtTrat`= ?, `durRio` = ?, `durTrat` = ?, `alcRio` = ?, `alcTrat`= ?, `cloroTrat`= ?, `cloroReserv`= ?, `analist`= ?  where `id` = ?";
 
       const values = [
         req.body.dhata,
@@ -71,7 +71,7 @@ export const updateUser = (req, res) => {
 
 };
 
-export const deleteUser = (req, res) => {
+export const deleteEta = (req, res) => {
     const q =
       "DELETE FROM tbestacao_eta WHERE `id` = ?";
     

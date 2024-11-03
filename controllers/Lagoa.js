@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
 
-export const getUsers = (_, res) => {
+export const getLagoa = (_, res) => {
     const q = "Select * from tblagoa";
 
     db.query(q, (err, data) => {
@@ -11,7 +11,7 @@ export const getUsers = (_, res) => {
     });
 };
 
-export const addUser = (req, res) => {
+export const addLagoa = (req, res) => {
     const q =
       "INSERT INTO tblagoa(`dhata`, `hora`, `phPonto1L1`, `phPonto2L1`, `phPonto3L1`, `phPonto4L1`, `phPonto1L2`, `phPonto2L2` , `phPonto2L3`, `phPonto2L4`, `analist`) VALUES(?)";
 
@@ -37,7 +37,7 @@ export const addUser = (req, res) => {
 
 };
 
-export const updateUser = (req, res) => {
+export const updateLagoa = (req, res) => {
     const q =
       "UPDATE usuarios SET `dhata` = ?, `hora` = ?, `phPonto1L1` = ?, `phPonto2L1` = ?, `phPonto3L1` = ?, `phPonto4L1` = ?, `phPonto1L2`= ?, `phPonto2L2`= ? , `phPonto2L3`= ? , `phPonto2L4`= ? where `id` = ?";
 
@@ -63,7 +63,7 @@ export const updateUser = (req, res) => {
 
 };
 
-export const deleteUser = (req, res) => {
+export const deleteLagoa = (req, res) => {
     const q =
       "DELETE FROM tblagoa WHERE `id` = ?";
     

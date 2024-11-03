@@ -1,14 +1,14 @@
 import express from "express";
-import { getUsers, addUser, updateUser, deleteUser } from "../controllers/Lagoa.js";
+import { getLagoa, addLagoa, updateLagoa, deleteLagoa } from "../controllers/Lagoa.js";
 
-const router = express.Router();
+const routerLagoa = express.Router();
 
-router.get("/lagoa", getUsers);
+routerLagoa.get("/", getLagoa);
 
-router.post("/lagoa", addUser);
+routerLagoa.post("/", addLagoa);
 
-router.put("/lagoa:id", updateUser);
+routerLagoa.put("/:id", updateLagoa);
 
-router.delete("/lagoa:id", deleteUser);
+routerLagoa.delete("/:id", deleteLagoa);
 
-export default router;
+export default routerLagoa;

@@ -1,14 +1,14 @@
 import express from "express";
-import { getUsers, addUser, updateUser, deleteUser } from "../controllers/ETE.js";
+import { getEte, addEte, updateEte, deleteEte } from "../controllers/ETE.js";
 
-const router = express.Router();
+const routerEte = express.Router();
 
-router.get("/ETE", getUsers);
+routerEte.get("/", getEte);
 
-router.post("/ETE", addUser);
+routerEte.post("/", addEte);
 
-router.put("/ETE:id", updateUser);
+routerEte.put("/:id", updateEte);
 
-router.delete("/ETE:id", deleteUser);
+routerEte.delete("/:id", deleteEte);
 
-export default router;
+export default routerEte;
